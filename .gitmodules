@@ -21,7 +21,7 @@
 	url = https://github.com/Tencent/rapidjson.git
 [submodule "ext/nanogui"]
 	path = ext/nanogui
-	url = git@github.com:fwsGonzo/nanogui.git
+	url = https://github.com/DrRemorse/nanogui
 [submodule "inc/SimplexNoise"]
 	path = inc/SimplexNoise
 	url = https://github.com/fwsGonzo/SimplexNoise.git
