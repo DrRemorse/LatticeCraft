@@ -1,0 +1,53 @@
+1. [x] Lag quickbar
+2. Lag inventory logikk
+3. Fiks opp bygging
+4. Legg til en desert, legg til kaktus
+
+Tall grass
+- Find a way to animate tall grass
+- Use same light as below vertices to save time
+- Use cross shader
+
+Add new data tile
+- Enable data channel that can cancel out shadows (emissive)
+
+Implement inventory logic
+- Add hotbar (quickbar)
+- Add logic for simple interactions with widget inventories
+- Work on building mechanics
+
+Implement post-processing in Lua
+- [x] Move most of the generic stuff to post-processing in C++
+- Make the post-processing callback a Lua function
+- Create Lua script wrapper
+- Load a Lua script, which again loads the rest (?)
+
+Fix issues with atmospheric voxel lighting
+- More tests
+- [x] Pass sector around in lighting algos to improve performance
+- [x] Re-enable torchlight fill, test with lava
+
+Implement connected textures
+- [x] Make optional
+- [x] Pass 3x3 array of blocks or block IDs to each texture function
+- [x] 3x3 array is on the same plane as the source block
+- [x] Array[4] is the source block and the center
+- Add example for how it works
+
+Vein-like ore deposition
+- Use cheapest noise
+- Create varied and SEPARATE ore zones
+- Simulate by disabling terrain
+
+Resolve issues with time
+- Make sure sun integrator is good
+- Ability to fast-forward time using ticks
+- Make sure physics doesn't use global time
+- Make sure renderer uses only global time
+- At night the world goes completely black, likely math problem
+
+World simulation
+- Implement random ticks for each sector (near a player?)
+- Liquid flow simulation
+- Rivers using flow
+- Generate rivers naturally

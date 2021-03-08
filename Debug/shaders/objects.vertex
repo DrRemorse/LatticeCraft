@@ -1,0 +1,27 @@
+#version 130
+
+uniform float daylight;
+uniform vec4 lightVector;
+uniform vec3 moonVector;
+
+out float vertdist;
+out vec4 colordata;
+out vec3 texCoord;
+out float worldLight;
+
+const float VERTEX_SCALE
+
+void main() {
+	
+	vec4 position = gl_ModelViewMatrix * vec4(gl_Vertex.xyz / VERTEX_SCALE, 1.0);
+	
+	#define in_normal gl_Normal
+	
+#include "worldlight.glsl"
+	
+	vertdist = length(position);
+	gl_Position = gl_ProjectionMatrix * position;
+	colordata = gl_Color;
+	texCoord = vec3(gl_MultiTexCoord0.st / VERTEX_SCALE, gl_MultiTexCoord0.p);
+	
+}

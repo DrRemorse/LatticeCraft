@@ -1,0 +1,32 @@
+{
+  "block_tiles":
+  {
+    "source": "mod/std/bitmaps/diffuse.png",
+    "data":
+    {
+      "cactus_top":  [1, 10],
+      "cactus_side": [1, 12],
+      "cactus_bot":  [1, 11]
+    }
+  },
+  "blocks":
+  {
+    "cactus_flower": {
+      "type": "cross",
+      "name": "Cactus Flower",
+      "color": "grass",
+      "minimap": "grass",
+      "tile": ["tiles", "cactus_flower"]
+    },
+    "cactus_block": {
+      "type": "leaf",
+      "name": "Cactus Block",
+      "model": 3,
+      "shader": 2,
+      "color": "grass",
+      "minimap": "grass",
+      "tile": ["tiles", ["cactus_top", "cactus_side", "cactus_bot"]],
+      "sound" : "cloth"
+    }
+  }
+}

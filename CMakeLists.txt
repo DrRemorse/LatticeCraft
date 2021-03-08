@@ -1,0 +1,93 @@
+cmake_minimum_required (VERSION 3.0.2)
+project (cppcraft C CXX)
+
+set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -O2 -g -flto=thin")
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pthread -stdlib=libc++ -flto=thin")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native -O3")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Ofast")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -fsanitize=address -fsanitize=undefined -fno-omit-frame-pointer")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -fsanitize=thread")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
+set(BUILD_SHARED_LIBRARIES OFF)
+
+option(GPROF "Enable gprof profiling" OFF)
+if (GPROF)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg")
+endif()
+option(GPERF "Enable gperf profiling" OFF)
+if (GPERF)
+add_definitions(-DENABLE_GPERF)
+endif()
+
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+
+if (UNIX)
+  include(FindPkgConfig)
+  pkg_search_module(GLFW REQUIRED glfw3)
+  #pkg_check_modules(LUA REQUIRED lua-5.1)
+  #include_directories("${LUA_STATIC_INCLUDE_DIRS}")
+  #link_directories("${LUA_STATIC_LIBRARY_DIRS}")
+  set(LUA_LIBS luajit-5.1)
+endif()
+if (WIN32)
+  find_package(OpenGL REQUIRED)
+  SET(CMAKE_EXE_LINKER_FLAGS "-static")
+
+endif()
+
+add_definitions(-DCPPCRAFT_CLIENT)
+add_definitions(-DGLM_ENABLE_EXPERIMENTAL)
+
+include_directories(common)
+include_directories(src)
+include_directories(inc)
+include_directories(inc/glm)
+include_directories(inc/LuaBridge/Source/LuaBridge)
+include_directories(inc/rapidjson/include)
+include_directories(inc/SimplexNoise/include)
+include_directories(library/include)
+include_directories(ext/tacopie/includes)
+include_directories(ext/nanogui/include)
+include_directories(ext/nanogui/ext/eigen)
+include_directories(ext/nanogui/ext/nanovg/src)
+
+add_subdirectory(common)
+add_subdirectory(library)
+add_subdirectory(src)
+add_subdirectory(ext)
+
+### linker stage ###
+LINK_DIRECTORIES(${CMAKE_BINARY_DIR}/Debug)
+SET(CMAKE_EXE_LINKER_FLAGS "-fuse-ld=lld-5.0")
+
+add_executable(cppcraft ${SOURCES})
+set_target_properties(cppcraft PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
+if (WIN32)
+  add_library(glew STATIC IMPORTED)
+  set_target_properties(glew PROPERTIES LINKER_LANGUAGE C)
+  set_target_properties(glew PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/lib/win64/glew32s.lib)
+
+  add_library(lua STATIC IMPORTED)
+  set_target_properties(lua PROPERTIES LINKER_LANGUAGE C)
+  set_target_properties(lua PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/lib/win64/liblua53.a)
+
+  target_link_libraries(cppcraft imagehlp library lua glew ${OPENGL_gl_LIBRARY})
+endif()
+if (UNIX)
+
+  add_library(fmod SHARED IMPORTED)
+  set_target_properties(fmod PROPERTIES LINKER_LANGUAGE CXX)
+  set_target_properties(fmod PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/Debug/libfmod.so.10.0)
+
+  target_link_libraries(cppcraft -pthread)
+  target_link_libraries(cppcraft nanogui common library tacopie nanogui fmod ${LUA_LIBS})
+  target_link_libraries(cppcraft glfw ${GLFW3_LIBRARIES} libGLEW.a GL)
+
+  if (GPERF)
+    target_link_libraries(cppcraft /usr/local/lib/libprofiler.a)
+  endif()
+endif()
+
+install(TARGETS cppcraft DESTINATION ${CMAKE_INSTALL_PREFIX})

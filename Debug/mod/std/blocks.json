@@ -1,0 +1,191 @@
+{
+  "blocks":
+  {
+    "bedrock": {
+      "type": "solid",
+      "name": "Bedrock",
+      "color": [48, 48, 48, 255],
+      "minimap": [48, 48, 48, 255],
+      "tile": ["tiles", "bedrock"],
+      "sound": "stone"
+    },
+    "molten": {
+      "type": "solid",
+      "name": "Molten Stone",
+      "color": "stone",
+      "minimap": "stone",
+      "tile": ["tiles", "molten"],
+      "sound": "stone"
+    },
+    "stone": {
+      "type": "solid",
+      "name": "Stone",
+      "color": "stone",
+      "minimap": "stone",
+      "tile": ["big", "stone", "repeat"],
+      "sound": "stone"
+    },
+    "soil": {
+      "type": "solid",
+      "name": "Dirt",
+      "color": [97, 57, 14, 255],
+      "minimap": [97, 57, 14, 255],
+      "tile": ["big", "soil", "repeat"],
+      "sound": "grass"
+    },
+    "snow": {
+      "type": "solid",
+      "name": "Snow Block",
+      "minimap": [255, 255, 255, 255],
+      "tile": ["big", "snow", "repeat"],
+      "sound": "snow"
+    },
+    "ice": {
+      "type": "solid",
+      "name": "Ice Block",
+      "minimap": [80, 200, 250, 255],
+      "tile": ["tiles", "ice"],
+      "sound": "stone"
+    },
+    "beach": {
+      "type": "solid",
+      "name": "Beach Sand",
+      "minimap": [220, 210, 174, 255],
+      "tile": ["big", "beach_sand", "repeat"],
+      "sound": "sand"
+    },
+    "desert_sand": {
+      "type": "solid",
+      "name": "Desert Sand",
+      "minimap": [220, 210, 174, 255],
+      "tile": ["big", "desert_sand", "repeat"],
+      "sound": "sand"
+    },
+
+    "grass_block": {
+      "type": "solid",
+      "name": "Grass Block",
+      "minimap": "grass",
+      "color": "grass",
+      "tile": ["big", ["grass_top", "grass_side", "soil"]],
+      "sound": "grass"
+    },
+    "grass_random": {
+      "type": "solid",
+      "name": "Flowery Grass Block",
+      "minimap": "grass",
+      "color": "grass",
+      "tile": ["big", ["grass_random", "grass_side", "soil"]],
+      "sound": "grass"
+    },
+
+    "gravel": {
+      "type": "solid",
+      "name": "Gravel",
+      "minimap": [220, 210, 174, 255],
+      "tile": ["big", "gravel", "repeat"],
+      "sound": "gravel"
+    },
+    "gravel_dirt": {
+      "type": "solid",
+      "name": "Gravel Dirt",
+      "minimap": [90, 70, 40, 255],
+      "tile": ["tiles", "gravel_dirt"],
+      "sound": "gravel"
+    },
+
+    "clay_blue": {
+      "type": "solid",
+      "name": "Blue Clay",
+      "minimap": [50, 70, 80, 255],
+      "tile": ["tiles", "clay_blue"],
+      "sound": "gravel"
+    },
+    "clay_brown": {
+      "type": "solid",
+      "name": "Brown Clay",
+      "minimap": [220, 210, 174, 255],
+      "tile": ["tiles", "clay_brown"],
+      "sound": "gravel"
+    },
+
+    "wood_brown": {
+      "type": "solid",
+      "name": "Oak Wood",
+      "minimap": [111, 63, 16, 255],
+      "tile": ["tiles", "wood_oak"],
+      "sound": "wood"
+    },
+    "leaf_colored": {
+      "type": "leaf",
+      "name": "Leaf Block",
+      "color": "trees_a",
+      "minimap": "trees_a",
+      "tile": ["tiles", "leaf"],
+      "sound": "cloth"
+    },
+    "leaf_green": {
+      "type": "leaf",
+      "name": "Leaf Block",
+      "color": "trees_b",
+      "minimap": "trees_b",
+      "tile": ["tiles", "leaf"],
+      "sound": "cloth"
+    },
+
+    "seaweed": {
+      "type": "cross",
+      "name": "Sea Weed",
+      "color": "grass",
+      "minimap": "grass",
+      "tile": ["tiles", "seaweed"]
+    },
+    "cross_grass": {
+      "type": "cross",
+      "name": "Grass Bush",
+      "color": "grass",
+      "minimap": "grass",
+      "tile": ["tiles", "grass_bush"]
+    },
+    "flower_red": {
+      "type": "cross",
+      "name": "Red Flower",
+      "color": "grass",
+      "minimap": "grass",
+      "tile": ["tiles", "flower_red"]
+    },
+    "flower_yellow": {
+      "type": "cross",
+      "name": "Yellow Flower",
+      "color": "grass",
+      "minimap": "grass",
+      "tile": ["tiles", "flower_yellow"]
+    },
+
+    "ore_coal": {
+      "type": "solid",
+      "name": "Coal Ore",
+      "color": "stone",
+      "minimap": [68, 62, 62, 255],
+      "tile": ["tiles", "ore_coal"],
+      "sound": "stone"
+    },
+    "ore_iron": {
+      "type": "solid",
+      "name": "Iron Ore",
+      "color": "stone",
+      "minimap": [68, 62, 62, 255],
+      "tile": ["tiles", "ore_iron"],
+      "sound": "stone"
+    },
+
+    "torch": {
+      "type": "cross",
+      "name": "Torch",
+      "tile": ["tiles", "torch"],
+      "sound": "wood",
+      "light": 13
+    }
+
+  }
+}

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=cppcraft
+Comment=cppcraft!
+TryExec=Debug/cppcraft
+Exec=Debug/cppcraft
+Icon=res/fbcraft.ico
+

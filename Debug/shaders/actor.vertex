@@ -1,0 +1,26 @@
+#version 130
+//uniform vec4 lightVector;
+uniform vec3 planetoid;
+
+uniform mat4 matproj;
+uniform mat4 matview;
+
+in vec3 in_vertex;
+in vec4 in_color;
+in vec4 in_texture;
+
+out vec3 texCoord;
+out vec4 colordata;
+out float vertdist;
+
+void main() {
+
+	vec4 position = matview * vec4(in_vertex.xyz, 1.0);
+	
+	vertdist = length(position);
+	gl_Position = matproj * position;
+	
+	colordata = in_color;
+	texCoord  = in_texture.stp;
+	
+}

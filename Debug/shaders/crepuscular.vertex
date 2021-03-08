@@ -1,0 +1,19 @@
+#version 130
+uniform mat4 matbias;
+uniform mat4 matproj;
+uniform mat4 matsun;
+
+in vec3 in_vertex;
+
+out vec2 in_texture;
+out vec4 sunproj;
+
+void main(void)
+{
+	sunproj = matbias * matproj * matsun * vec4(0.0, 0.0, 0.0, 1.0);
+	sunproj.xy /= sunproj.w;
+	
+	in_texture = in_vertex.xy;
+	gl_Position = vec4(in_vertex.xy * 2.0 - 1.0, 0.0, 1.0);
+	
+}

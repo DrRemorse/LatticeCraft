@@ -1,0 +1,40 @@
+{
+  "items":
+  {
+    "wooden_pick": {
+      "name": "Wooden Pickaxe",
+      "voxelize": true,
+      "hand_rotation": [45, 0, 0],
+      "hand_translation": [0, 0, 0.1],
+      "tile": "wooden_pick",
+      "data": {
+        "mine_level": 1
+      }
+    },
+    "stone_sword": {
+      "name": "Stone Sword",
+      "voxelize": true,
+      "hand_rotation": [45, 0, 0],
+      "hand_translation": [0, 0, 0.1],
+      "tile": "stone_sword",
+      "data": {
+        "cut_level": 2
+      }
+    },
+    "apple": {
+      "name": "Red Apple",
+      "voxelize": true,
+      "hand_rotation": [0, 75, 0],
+      "hand_translation": [0.5, -0.2, 0],
+      "tile": "apple"
+    },
+    "torch": {
+      "name": "Torch",
+      "voxelize": true,
+      "hand_rotation": [0, 75, 0],
+      "hand_translation": [0.5, 0.1, 0],
+      "tile": "torch",
+      "activation": ["build", "torch"]
+    }
+  }
+}

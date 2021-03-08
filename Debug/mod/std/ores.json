@@ -1,0 +1,17 @@
+{
+  "deposits":
+  {
+    "ore_coal": {
+      "max_height": 255,
+      "min_cluster": 6,
+      "max_cluster": 16,
+      "count": 40
+    },
+    "ore_iron": {
+      "max_height": 160,
+      "min_cluster": 4,
+      "max_cluster": 8,
+      "count": 20
+    }
+  }
+}

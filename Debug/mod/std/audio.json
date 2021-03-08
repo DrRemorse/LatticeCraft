@@ -1,0 +1,50 @@
+{
+  "sounds":
+  {
+    "single":
+    {
+      "door_open": "/sound/interaction/door_open.ogg",
+      "door_close": "/sound/interaction/door_close.ogg",
+  		"pickup": "/sound/interaction/pickup.ogg",
+  		"place": "/sound/interaction/place.ogg",
+  		"splash": "/sound/liquid/splash1.ogg",
+  		"splash_big": "/sound/liquid/splash2.ogg",
+  		"click_start": "/sound/click_start.mp3",
+  		"click_end": "/sound/click_end.mp3",
+  		"lavapop": "/sound/liquid/lavapop.ogg"
+    },
+    "materials":
+    {
+      "cloth":  "/sound/materials/cloth",
+  		"glass":  "/sound/materials/glass",
+  		"grass":  "/sound/materials/grass",
+  		"gravel": "/sound/materials/gravel",
+  		"sand":   "/sound/materials/sand",
+  		"snow":   "/sound/materials/snow",
+  		"stone":  "/sound/materials/stone",
+  		"wood":   "/sound/materials/wood"
+    }
+  },
+  "streams":
+  {
+    "water": "/sound/liquid/water.ogg",
+		"lava": "/sound/liquid/lava.ogg",
+
+		"autumn": "/music/ANW1402_09_Exodus.mp3",
+		"desert": "/music/ANW1401_03_Call-to-Beroea.mp3",
+		"forest": "/music/ANW1332_07_Intimate-Moment.mp3",
+		"islands": "/music/ANW1247_05_Ancient-Times.mp3",
+		"jungle": "/music/ANW1501_06_Denouement.mp3",
+		"winter": "/music/ANW1332_04_Farewell-My-Dear.mp3",
+
+		"amb_autumn": "/music/ambience/autumn.mp3",
+		"amb_desert": "/music/ambience/desert.mp3",
+		"amb_forest": "/music/ambience/forest.mp3",
+		"amb_islands": "/music/ambience/islands.mp3",
+		"amb_jungle": "/music/ambience/jungle.mp3",
+		"amb_winter": "/music/ambience/winter.mp3",
+
+		"amb_water": "/music/ambience/underwater.mp3",
+		"amb_caves": "/music/ambience/cave.mp3"
+  }
+}

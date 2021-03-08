@@ -1,0 +1,23 @@
+{
+  "block_tiles":
+  {
+    "source": "mod/std/bitmaps/diffuse.png",
+    "data":
+    {
+      "pumpkin_top":  [0, 10],
+      "pumpkin_side": [0, 11],
+      "pumpkin_bot":  [0, 12]
+    }
+  },
+  "blocks":
+  {
+    "pumpkin_block": {
+      "type": "solid",
+      "name": "Pumpkin Block",
+      "color": "grass",
+      "minimap": "grass",
+      "tile": ["tiles", ["pumpkin_top", "pumpkin_side", "pumpkin_bot"]],
+      "sound" : "wood"
+    }
+  }
+}

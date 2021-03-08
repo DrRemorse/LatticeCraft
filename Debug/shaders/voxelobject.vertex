@@ -1,0 +1,43 @@
+#version 130
+#define PLAYERLIGHT
+
+uniform float daylight;
+uniform vec4 lightVector;
+uniform vec4 playerLight;
+uniform float modulation;
+
+uniform vec4 mRGBA;
+
+in vec4 in_vertex;
+in vec4 in_normal;
+in vec4 in_color;
+
+out vec4 out_color;
+
+
+void main(void) {
+	
+	vec4 position = gl_ModelViewMatrix * vec4(in_vertex.xyz, 1.0);
+	
+	float vertdist = length(position.xyz);
+	
+	float dotlight = 0.8 + 0.2 * dot(lightVector.xyz, in_normal.xyz);
+	
+	#include "degamma_voxel.glsl"
+	
+	/* brightness */
+	float brightness = 0.0f;
+	#include "playerlight.glsl"
+	
+	brightness = max(brightness, length(mRGBA.rgb) * 0.58);
+	/* brightness */
+	
+	// mix in shadows / torchlight
+	out_color.rgb *= dotlight * min(1.0, daylight + brightness);
+	out_color.rgb = mix(out_color.rgb, mRGBA.rgb, max(0.0, mRGBA.a - brightness) );
+	
+	#include "gamma_voxel.glsl"
+	
+	gl_Position = gl_ProjectionMatrix * position;
+	
+}

@@ -1,0 +1,44 @@
+#version 130
+#define PLAYERLIGHT
+
+uniform vec4 lightVector;
+uniform vec4 playerLight;
+uniform float modulation;
+
+out vec3 texCoord;
+out vec4 colordata;
+
+flat out float worldLight;
+out float brightness;
+
+const float VERTEX_SCALE
+const float ZFAR
+
+void main() {
+
+	texCoord = gl_MultiTexCoord0.stp;
+	texCoord.st /= VERTEX_SCALE;
+	
+	colordata = gl_Color;
+	
+	vec4 position = vec4(gl_Vertex.xyz / VERTEX_SCALE, 1.0);
+	position = gl_ModelViewMatrix * position;
+	
+	float vertdist = length(position);
+	
+	/* brightness */
+	brightness = 0.0;
+	#include "playerlight.glsl"
+	
+	brightness = max(brightness, length(colordata.rgb) * 0.58);
+	/* brightness */
+	
+	/* worldlight */
+	const float ambience = 0.5;
+	float dotlight = dot(gl_Normal.xyz, lightVector.xyz);
+	worldLight = max(ambience * 0.6 + 0.5 * (0.5 + 0.5*dotlight), 0.2);
+	/* worldlight */
+	
+	gl_Position = gl_ProjectionMatrix * position;
+	
+}

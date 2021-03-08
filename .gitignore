@@ -1,0 +1,32 @@
+# Compiled Object files
+*.o
+*.d
+Debug/gmon.out
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.a
+
+# compressed chunks
+*.compressed
+# raw chunks
+*.chunk
+
+# Music
+*.mp3
+
+# Executable & logs
+*.exe
+*.log
+Debug/config.ini
+
+# Other
+*.rar
+build/
+Debug/config.ini
+Debug/world/world.data
+Debug/gprof_callgraph.png
+stuff/
