@@ -1,6 +1,7 @@
 #pragma once
 #include "sectorblock.hpp"
 #include "common.hpp"
+#include <stdexcept>
 
 namespace cppcraft
 {

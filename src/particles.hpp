@@ -30,7 +30,7 @@ namespace cppcraft
 
 		uint32_t color;
 
-	} __attribute__((packed));
+	}; // __attribute__((packed));
 
 	struct Particle
 	{

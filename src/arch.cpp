@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <cxxabi.h>
+// #include <cxxabi.h>
 #include <string>
 
 #define NUM_SYMBOLS  15
 
 const std::string demangle(const char* name)
 {
-  int status = -4;
-  char* res = abi::__cxa_demangle(name, NULL, NULL, &status);
-  std::string ret_val((status == 0) ? res : name);
-  std::free(res);
+  // int status = -4;
+  // char* res = abi::__cxa_demangle(name, NULL, NULL, &status);
+  std::string ret_val( /* (status == 0) ? res : */ name);
+  // std::free(res);
   return ret_val;
 }
 

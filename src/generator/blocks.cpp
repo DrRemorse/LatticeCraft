@@ -187,7 +187,7 @@ namespace terragen
           set_tiling_function(block, tiledb.tiles, tile[1]);
         }
       } // tiles
-      else if (type == "big" or type == "bigtiles")
+      else if (type == "big" || type == "bigtiles")
       {
         block.repeat_y = false;
         if (tile.Size() == 3)

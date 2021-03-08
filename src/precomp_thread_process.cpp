@@ -2,6 +2,7 @@
 
 #include "precomp_thread_data.hpp"
 #include "blocks_vfaces.hpp"
+#include <stdexcept>
 
 namespace cppcraft
 {

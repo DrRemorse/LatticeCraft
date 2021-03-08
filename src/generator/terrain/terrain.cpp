@@ -121,13 +121,13 @@ namespace terragen
 		static const int y_points = BLOCKS_Y / y_step + 3;
 
 		// terrain heightmaps
-    glm::vec3 heightmap_und[GRID2D+1][GRID2D+1] ALIGN_AVX;
-    float     heightmap_gnd[GRID2D+1][GRID2D+1] ALIGN_AVX;
-		float     beachhead    [GRID2D+1][GRID2D+1] ALIGN_AVX;
+		glm::vec3 heightmap_und[GRID2D + 1][GRID2D + 1]; // ALIGN_AVX;
+		float     heightmap_gnd[GRID2D + 1][GRID2D + 1]; // ALIGN_AVX;
+		float     beachhead[GRID2D + 1][GRID2D + 1]; // ALIGN_AVX;
 		// noise (terrain density) values
-		float noisearray[GRID2D+1][GRID2D+1][y_points] ALIGN_AVX;
+		float noisearray[GRID2D + 1][GRID2D + 1][y_points]; // ALIGN_AVX;
 		// 3D caves densities
-		float cave_array[GRID2D+1][GRID2D+1][y_points] ALIGN_AVX;
+		float cave_array[GRID2D + 1][GRID2D + 1][y_points]; // ALIGN_AVX;
 
     // precalculate heightmap
     for (int x = 0; x <= GRID2D; x++)

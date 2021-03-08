@@ -107,7 +107,7 @@ namespace terragen
       for (auto& origin : m_points)
       {
         const glm::vec2 p = wrap_around(point_around(origin, min_dist), w, h);
-        if (not grid.in_neighborhood(p, min_dist, w, h)) {
+        if (! grid.in_neighborhood(p, min_dist, w, h)) {
           grid.set(p);
           m_points.push_back(p);
           break;
