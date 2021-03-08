@@ -23,8 +23,8 @@ namespace cppcraft
 
 extern void dump_trace();
 
-#define LIKELY(x)    __builtin_expect(!!(x), 1)
-#define UNLIKELY(x)  __builtin_expect(!!(x), 0)
+#define LIKELY(x)   (x) // __builtin_expect(!!(x), 1)
+#define UNLIKELY(x) (x) // __builtin_expect(!!(x), 0)
 
 #include <cassert>
 #include <stdlib.h>
