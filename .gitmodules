@@ -3,7 +3,7 @@
 	url = https://github.com/g-truc/glm.git
 [submodule "library"]
 	path = library
-	url = https://github.com/fwsGonzo/library.git
+	url = https://github.com/DrRemorse/LatticeLibrary
 [submodule "inc/LuaBridge"]
 	path = inc/LuaBridge
 	url = https://github.com/fwsGonzo/LuaBridge.git
