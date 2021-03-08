@@ -70,8 +70,8 @@ if (WIN32)
 
   add_library(lua STATIC IMPORTED)
   set_target_properties(lua PROPERTIES LINKER_LANGUAGE C)
-  set_target_properties(lua PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/lib/win64/liblua53.a)
-
+  #set_target_properties(lua PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/lib/win64/liblua53.a)
+  set_target_properties(lua PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/lib/win64/lua.lib)
   target_link_libraries(cppcraft imagehlp library lua glew ${OPENGL_gl_LIBRARY})
 endif()
 if (UNIX)
