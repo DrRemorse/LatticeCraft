@@ -21,11 +21,11 @@ inline int ihash(int x)
 }
 inline int ihash(int x, int y)
 {
-	return hash(x xor ihash(y)) & INT32_MAX;
+	return hash(x ^ ihash(y)) & INT32_MAX;
 }
 inline int ihash(int x, int y, int z)
 {
-	return hash(x xor ihash(y) xor ihash(z)) & INT32_MAX;
+	return hash(x ^ ihash(y) ^ ihash(z)) & INT32_MAX;
 }
 
 inline float randf(int x)
@@ -34,16 +34,16 @@ inline float randf(int x)
 }
 inline float randf(int x, int y)
 {
-	return randf(x xor ihash(y));
+	return randf(x ^ ihash(y));
 }
 inline float randf(int x, int y, int z)
 {
-	return randf(x xor ihash(y) xor ihash(z));
+	return randf(x ^ ihash(y) ^ ihash(z));
 }
 
 inline int rand2d(int x, int z)
 {
-	return ihash(x + 5953) xor ihash(z + 7639);
+	return ihash(x + 5953) ^ ihash(z + 7639);
 }
 
 inline unsigned int wang_hash(int key)
